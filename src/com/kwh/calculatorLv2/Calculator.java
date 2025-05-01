@@ -1,4 +1,4 @@
-package com.example.calculator;
+package com.kwh.calculatorLv2;
 
 import java.util.ArrayList;
 
@@ -6,16 +6,13 @@ public class Calculator {
     private static ArrayList<Integer> results = new ArrayList<>();
 
     public int calculate(int firstNum, int secondNum, char op) {
-        int result = switch (op) {
+        return switch (op) {
             case '+' -> firstNum + secondNum;
             case '-' -> firstNum - secondNum;
             case '/' -> firstNum / secondNum;
             case '*' -> firstNum * secondNum;
             default -> 0;
         };
-        results.add(result);
-
-        return result;
     }
 
     public void removeResult() {

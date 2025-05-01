@@ -1,11 +1,9 @@
-package com.example.calculator;
+package com.kwh.calculatorLv1;
 
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -21,9 +19,14 @@ public class App {
             if (op == '/' && secondNum == 0) {
                 System.out.println("나눗셈 연산에서 분모에 0이 입력될 수 없습니다.");
             } else {
-                int result = calculator.calculate(firstNum, secondNum, op);
+                int result = switch (op) {
+                    case '+' -> firstNum + secondNum;
+                    case '-' -> firstNum - secondNum;
+                    case '/' -> firstNum / secondNum;
+                    case '*' -> firstNum * secondNum;
+                    default -> 0;
+                };
                 System.out.println("결과: " + result);
-                System.out.println(calculator.getResults());
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
