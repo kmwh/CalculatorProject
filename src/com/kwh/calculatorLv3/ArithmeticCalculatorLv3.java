@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ArithmeticCalculator<T extends Number> {
+public class ArithmeticCalculatorLv3<T extends Number> {
     private static ArrayList<Double> results = new ArrayList<>();
 
-    public double calculate(T fn, T sn, OperatorType op) {
+    public double calculate(T fn, T sn, OperatorTypeLv3 op) {
         double firstNum = fn.doubleValue();
         double secondNum = sn.doubleValue();
         return switch (op) {

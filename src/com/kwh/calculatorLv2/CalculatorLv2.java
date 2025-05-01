@@ -2,7 +2,7 @@ package com.kwh.calculatorLv2;
 
 import java.util.ArrayList;
 
-public class Calculator {
+public class CalculatorLv2 {
     private static ArrayList<Integer> results = new ArrayList<>();
 
     public int calculate(int firstNum, int secondNum, char op) {

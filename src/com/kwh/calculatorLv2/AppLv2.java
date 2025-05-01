@@ -1,11 +1,11 @@
-package com.kwh.calculatorLv3;
+package com.kwh.calculatorLv2;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class App {
+public class AppLv2 {
     public static void main(String[] args) {
-        ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
+        CalculatorLv2 calculator = new CalculatorLv2();
 
         Scanner sc = new Scanner(System.in);
 
@@ -13,7 +13,6 @@ public class App {
             System.out.println("\nc: 계산");
             System.out.println("h: 계산 기록 확인");
             System.out.println("r: 가장 먼저 저장된 계산 기록 삭제");
-            System.out.println("g: 저장된 연산들 중 입력한 값보다 큰 결과값들 확인");
             System.out.println("exit: 종료");
             System.out.print("작업을 선택하세요: ");
             String optionString = sc.next();
@@ -32,29 +31,25 @@ public class App {
                 }
             } else if (optionString.equals("c")) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                double firstNum = sc.nextDouble();
+                int firstNum = sc.nextInt();
 
                 System.out.print("두 번쨰 숫자를 입력하세요: ");
-                double secondNum = sc.nextDouble();
+                int secondNum = sc.nextInt();
 
                 System.out.print("사칙연산 기호를 입력하세요: ");
-                OperatorType op = OperatorType.fromChar(sc.next().charAt(0));
+                char op = sc.next().charAt(0);
 
-                if (op.equals(OperatorType.DIVIDE) && secondNum == 0) {
+                if (op == '/' && secondNum == 0) {
                     System.out.println("나눗셈 연산에서 분모에 0이 입력될 수 없습니다.");
                 } else {
-                    double result = calculator.calculate(firstNum, secondNum, op);
+                    int result = calculator.calculate(firstNum, secondNum, op);
 
-                    ArrayList<Double> newResults = calculator.getResults();
+                    ArrayList<Integer> newResults = calculator.getResults();
                     newResults.add(result);
                     calculator.setResults(newResults);
 
                     System.out.println("결과: " + result);
                 }
-            } else if (optionString.equals("g")) {
-                System.out.print("비교할 숫자를 입력하세요: ");
-                double num = sc.nextDouble();
-                System.out.println(calculator.resultsGreaterThan(num));
             }
         }
     }
